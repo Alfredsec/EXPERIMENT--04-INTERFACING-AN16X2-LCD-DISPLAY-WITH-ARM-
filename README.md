@@ -1,12 +1,15 @@
 # EXPERIMENT--04-INTERFACING-AN16X2-LCD-DISPLAY-WITH-ARM AND DISPLAY STRING
 
 
- ## Aim: To Interface a 16X2 LCD display to ARM controller  , and simulate it in Proteus 
-## Components required: STM32 CUBE IDE, Proteus 8 simulator .
+ ## Aim:
+ To Interface a 16X2 LCD display to ARM controller  , and simulate it in Proteus 
+## Components required:
+STM32 CUBE IDE, Proteus 8 simulator .
 ## Theory 
 The full form of an ARM is an advanced reduced instruction set computer (RISC) machine, and it is a 32-bit processor architecture expanded by ARM holdings. The applications of an ARM processor include several microcontrollers as well as processors. The architecture of an ARM processor was licensed by many corporations for designing ARM processor-based SoC products and CPUs. This allows the corporations to manufacture their products using ARM architecture. Likewise, all main semiconductor companies will make ARM-based SOCs such as Samsung, Atmel, TI etc.
 
 What is an ARM7 Processor?
+
 ARM7 processor is commonly used in embedded system applications. Also, it is a balance among classic as well as new-Cortex sequence. This processor is tremendous in finding the resources existing on the internet with excellence documentation offered by NXP Semiconductors. It suits completely for an apprentice to obtain in detail hardware & software design implementation.
  STM32F401xB STM32F401xC ARM® Cortex®-M4 32b MCU+FPU, 105 DMIPS, 256KB Flash/64KB RAM, 11 TIMs, 1 ADC, 11 comm.
 interfaces Datasheet - production data Features
@@ -173,15 +176,51 @@ https://engineeringxpert.com/wp-content/uploads/2022/04/26.png
 
 
 ## STM 32 CUBE PROGRAM :
-
-
+```
+DEVELOPED BY: ALFRED A B
+REG. NO : 212222110003
+```
+```
+#include "main.h"
+#include "stdbool.h"
+bool buttonstatus;
+void SystemClock_Config(void);
+static void MX_GPIO_Init(void);
+int main(void)
+{
+  HAL_Init();
+  SystemClock_Config();
+  MX_GPIO_Init();
+  while (1)
+  {
+	  buttonstatus=HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0);
+	  if(buttonstatus==0)
+	  {
+		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_RESET);
+		  HAL_Delay(100);
+		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_SET);
+		  HAL_Delay(100);
+	  }
+	  else
+	  {
+		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_RESET);
+		  HAL_Delay(100);
+	  }
+  }
+}
+```
 
 
 ## Output screen shots of proteus  :
- 
+### LED OFF(SWITCH OFF):
+![Screenshot 2023-09-01 112213](https://github.com/Alfredsec/EXPERIMENT--04-INTERFACING-AN16X2-LCD-DISPLAY-WITH-ARM-/assets/120621608/d45a1fb3-2527-4e91-96f3-133e62019130)
+
+### LED ON(SWITCH ON):
+![Screenshot 2023-09-01 112234](https://github.com/Alfredsec/EXPERIMENT--04-INTERFACING-AN16X2-LCD-DISPLAY-WITH-ARM-/assets/120621608/69a3a940-1158-4c46-a1cb-42251ea95eba)
+
  
  ## CIRCUIT DIAGRAM (EXPORT THE GRAPHICS TO PDF AND ADD THE SCREEN SHOT HERE): 
- 
+
  
 ## Result :
 Interfacing a lcd display with ARM microcontroller are simulated in proteus and the results are verified.
