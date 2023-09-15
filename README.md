@@ -1,4 +1,4 @@
-# EXPERIMENT--04-INTERFACING-AN16X2-LCD-DISPLAY-WITH-ARM AND DISPLAY STRING
+# DISPLAY-WITH-ARM AND DISPLAY STRING
 
 
  ## Aim:
@@ -182,8 +182,7 @@ REG. NO : 212222110003
 ```
 ```
 #include "main.h"
-#include "stdbool.h"
-bool buttonstatus;
+#include "lcd.h"
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 int main(void)
@@ -191,38 +190,29 @@ int main(void)
   HAL_Init();
   SystemClock_Config();
   MX_GPIO_Init();
-  while (1)
-  {
-	  buttonstatus=HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0);
-	  if(buttonstatus==0)
-	  {
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_RESET);
-		  HAL_Delay(100);
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_SET);
-		  HAL_Delay(100);
-	  }
-	  else
-	  {
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_RESET);
-		  HAL_Delay(100);
-	  }
-  }
-}
+ Lcd_PortType ports[] = {GPIOA,GPIOA,GPIOA,GPIOA};
+ Lcd_PinType pins[] = {GPIO_PIN_3,GPIO_PIN_2,GPIO_PIN_1,GPIO_PIN_0};
+ Lcd_HandleTypeDef lcd;
+ lcd = Lcd_create(ports,pins,GPIOB,GPIO_PIN_0,GPIOB,GPIO_PIN_1,LCD_4_BIT_MODE);
+ Lcd_cursor(&lcd, 1,0);
+ Lcd_string(&lcd, "CSE(IOT)");
+ Lcd_cursor(&lcd, 1,9);
+ Lcd_string(&lcd, "2ndYEAR");
+
+ Lcd_cursor(&lcd, 0,3);
+ Lcd_string(&lcd, "ALFRED.A.B");
 ```
 
 
 ## Output screen shots of proteus  :
-### LED OFF(SWITCH OFF):
-![Screenshot 2023-09-01 112213](https://github.com/Alfredsec/EXPERIMENT--04-INTERFACING-AN16X2-LCD-DISPLAY-WITH-ARM-/assets/120621608/d45a1fb3-2527-4e91-96f3-133e62019130)
+### LCD ON:
+![Screenshot 2023-09-15 112035](https://github.com/Alfredsec/EXPERIMENT--04-INTERFACING-AN16X2-LCD-DISPLAY-WITH-ARM-/assets/120621608/9c736c9e-e63e-4e0f-bd9e-e135a1a03910)
+### LCD OFF:
+![Screenshot 2023-09-15 112457](https://github.com/Alfredsec/EXPERIMENT--04-INTERFACING-AN16X2-LCD-DISPLAY-WITH-ARM-/assets/120621608/4f67aa8f-84e8-4c16-9809-e0479fdc624f)
 
-### LED ON(SWITCH ON):
-![Screenshot 2023-09-01 112234](https://github.com/Alfredsec/EXPERIMENT--04-INTERFACING-AN16X2-LCD-DISPLAY-WITH-ARM-/assets/120621608/69a3a940-1158-4c46-a1cb-42251ea95eba)
-
- 
  ## CIRCUIT DIAGRAM (EXPORT THE GRAPHICS TO PDF AND ADD THE SCREEN SHOT HERE): 
-![Screenshot 2023-09-01 112742 JPG](https://github.com/Alfredsec/EXPERIMENT--04-INTERFACING-AN16X2-LCD-DISPLAY-WITH-ARM-/assets/120621608/660d5f13-72de-4c3b-b3a5-746c512449e1)
+ ![Screenshot 2023-09-15 114316](https://github.com/Alfredsec/EXPERIMENT--04-INTERFACING-AN16X2-LCD-DISPLAY-WITH-ARM-/assets/120621608/78a65680-e84a-4912-9e29-2cfb182b6ca5)
 
- 
 ## Result :
 Interfacing a lcd display with ARM microcontroller are simulated in proteus and the results are verified.
 
