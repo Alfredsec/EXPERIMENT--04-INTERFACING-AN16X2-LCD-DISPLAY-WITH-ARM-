@@ -206,13 +206,15 @@ int main(void)
 
 ## Output screen shots of proteus  :
 ### LCD ON:
-![Screenshot 2023-09-15 112035](https://github.com/Alfredsec/EXPERIMENT--04-INTERFACING-AN16X2-LCD-DISPLAY-WITH-ARM-/assets/120621608/9c736c9e-e63e-4e0f-bd9e-e135a1a03910)
-### LCD OFF:
-![Screenshot 2023-09-15 112457](https://github.com/Alfredsec/EXPERIMENT--04-INTERFACING-AN16X2-LCD-DISPLAY-WITH-ARM-/assets/120621608/4f67aa8f-84e8-4c16-9809-e0479fdc624f)
+
+![Screenshot 2024-10-05 205443](https://github.com/user-attachments/assets/736458c9-063c-4791-91b5-029854465c7f)
+
 
  ## CIRCUIT DIAGRAM (EXPORT THE GRAPHICS TO PDF AND ADD THE SCREEN SHOT HERE): 
- ![Screenshot 2023-09-15 114316](https://github.com/Alfredsec/EXPERIMENT--04-INTERFACING-AN16X2-LCD-DISPLAY-WITH-ARM-/assets/120621608/78a65680-e84a-4912-9e29-2cfb182b6ca5)
+ 
+![Screenshot 2024-10-05 205555](https://github.com/user-attachments/assets/d6a56b22-ec4f-42aa-906b-a5d91d13bd59)
 
+ 
 ## Result :
 Interfacing a lcd display with ARM microcontroller are simulated in proteus and the results are verified.
 
